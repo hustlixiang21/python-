@@ -1,0 +1,42 @@
+列表中存储字典
+
+餐馆中已经有了3份菜单，每份菜单都会有菜名和价格。我们要将这些信息存储在一起，可以采取如下方法：将3份菜单用字典的方式存储菜名和价格，然后将这3份菜单字典存储在一个列表中，例如：
+
+# 创建3个菜单字典，包含菜名和价格
+menu1 = {'fish':40, 'pork':30, 'potato':20,'noodles':15}
+menu2 = {'chicken':30, 'corn':55, 'lamb':65,'onion':12}
+menu3 = {'bacon':36, 'beaf':48, 'crab':72,'eggs':7}
+# 将3个菜单字典存储到列表menu_total中
+menu_total = [menu1,menu2,menu3]
+# 输出列表
+print(menu_total)
+输出结果：
+
+[{'fish': 40, 'pork': 30, 'potato': 20, 'noodles': 15}, {'chicken': 30, 'corn': 55, 'lamb': 65, 'onion': 12}, {'bacon': 36, 'beaf': 48, 'crab': 72, 'eggs': 7}]
+字典中存储列表
+
+我们也可以在字典中存储列表。比如我们对于一份菜单，菜名作为键，而值我们想是这道菜的配料，那么我们就可以将这些配料作为列表存储，然后作为值存储在字典中。例如：
+
+# 初始化menu菜单，里面包含配料列表
+menu = {'fish':['vinegar','soy','salt'], 'pork':['sugar','wine']}
+# 输出pork这道菜的配料
+print('The burding of pork is:',menu['pork'])
+输出结果：
+
+The burding of pork is: ['sugar', 'wine']
+字典中存储字典
+
+我们也可以在字典中存储字典。例如我们有一份总菜单，包含2个子菜单，每个子菜单都包含菜名和价格。例如：
+
+# 创建一个字典menu_sum，里面包含两个子菜单字典menu1和menu2
+menu_sum = {
+    'menu1':{'fish':40, 'pork':30, 'potato':20,'noodles':15},
+    'menu2':{'chicken':30, 'corn':55, 'lamb':65,'onion':12}
+}
+# 输出menu1和menu2中的菜名和价格
+print(menu_sum['menu1'])
+print(menu_sum['menu2'])
+输出结果：
+
+{'fish': 40, 'pork': 30, 'potato': 20, 'noodles': 15}
+{'chicken': 30, 'corn': 55, 'lamb': 65, 'onion': 12}

@@ -1,0 +1,49 @@
+双向队列 (deque)
+
+双向队列是一种能在队列两端都进行入队、出队操作的数据结构，比普通的队列更加灵活也更加复杂。
+
+创建双向队列
+
+就像计数器Counter，双向队列可以调用无参构造函数创建一个空队列，也可以使用可迭代对象创建，并初始化一个队列，比如：
+
+d = collections.deque() #创建一个空队列
+d = collections.deque(['a','b','c']) #从list创建
+d = collections.deque(('a','b','c')) #从tuple创建
+d = collections.deque({'a':0,'b':1,'c':2}) #从dict创建
+d = collections.deque("abc") #从字符串创建
+第一行语句创建一个空队列，下面四行语句创建了含有元素a，b，c的队列，要注意当从dict创建时，使用的是它的键key，而不是值value。
+
+队列操作
+
+双向队列与list类似，也有append和pop这两个成员函数，他们的作用分别是向队列的右边增加元素和从队列的右边删除并返回一个元素，比如：
+
+d.append('d') #向右边增加一个元素'd'
+print(d)
+d.pop() #从右边删除一个元素
+print(d)
+得到的结果：
+deque(['a', 'b', 'c', 'd'])
+deque(['a', 'b', 'c'])
+
+与append，pop相对应的，还有一组对队列左边进行操作的函数：appendleft，popleft，用法也与前面的一组类似：
+
+d.appendleft('+') #向左边增加一个元素'+'
+print(d)
+d.popleft() #从左边删除一个元素
+print(d)
+得到的结果：
+deque(['+', 'a', 'b', 'c'])
+deque(['a', 'b', 'c'])
+
+双向队列还提供了一对操作：extend和extendleft，用于将一个可迭代对象的所有迭代值，依次加入到队列的右边或者左边：
+
+d1 = collections.deque()
+d1.extend("123")
+print(d1)
+d1 = collections.deque()
+d1.extendleft("123")
+print(d1)
+得到的结果是：
+deque(['1', '2', '3'])
+deque(['3', '2', '1'])
+可以注意到，上下两个结果的值的顺序是相反的。

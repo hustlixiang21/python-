@@ -1,0 +1,40 @@
+Python 是一门面向对象的语言。面向对象编程 - Object Oriented Programming（简称 OOP）
+是一种编程思想，在面向对象编程中，把对象作为程序的基本单元，把程序视为一系列对象的集合。
+一个对象包括了数据和操作数据的方法，消息传递成为联系对象的方法。
+
+对象可按其性质划分为类，对象也就是类的实例。类是用来描述具有相同的属性和方法的对象的集合，即抽象的集合。
+例如书这个类，它代表着所有书，它具有书所共有的属性：书名、版本、作者和出版日期，
+它也具有所有书都共有的方法：销售。本关的任务是让学习者掌握类的定义与声明。
+
+相关知识
+类的声明
+
+在 Python 中，类的声明是通过class关键字表示的：
+
+class ClassName(bases_classes):
+    '类文档字符串'
+    class_suite     # 类体
+class后面接着是类名ClassName，类名的开头通常是大写。
+类名后面的(bases_classes)表示这个类是由哪个类继承来的，如果没有合适的继承类，就使用object类，
+object类是所有类都会继承的基类。类文档字符串是对类所进行的说明，可以通过ClassName.__doc__查看。
+类体由类成员、方法、数据属性组成。例如：
+
+class Book(object):
+    '书籍类'
+    bookList = ['python','java','c++','ruby']
+    for book in bookList:
+        print(book)
+类的定义
+
+在 Python 中，类的定义与声明是同时进行的，在用class关键字声明一个类之后，此类就被定义了。
+同时，类中的各种方法在用def关键字声明后也被定义。例如：
+
+class Book(object):
+    '书籍类'
+    def _init_(self,name,author,data,version):
+        self.name = name
+        self.author = author
+        self.data = data
+        self.version = version
+    def sell(bookName,price):
+        print("%s的销售价格为%d" %(bookName,price))

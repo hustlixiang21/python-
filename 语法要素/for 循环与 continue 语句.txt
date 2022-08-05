@@ -1,0 +1,30 @@
+for循环和continue结构如下图1所示：
+
+for语句
+
+for语句的基本形式为：
+
+for iteration_var in sequence:
+    循环语句
+依次遍历序列中的成员，执行循环语句。例如：
+
+list = ['python','java','c','c++']
+for book in list:
+    print("当前书籍为:",book)
+continue语句
+
+continue语句的基本形式为：
+
+for iteration_var in sequence:
+    循环语句
+    if 判断语句1：
+    continue
+当遍历序列时，如果判断语句1为真，则执行continue语句，跳出当前循环，直接进入下一次循环。例如：
+
+list = ['python','java','c','c++']
+count = 0
+for book in list:
+    count += 1
+    if count == 3:
+        continue
+    print("当前书籍为:",book)

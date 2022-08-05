@@ -1,0 +1,33 @@
+Python 中的实例方法由实例调用，且隐含传入的self参数为实例本身。
+而静态方法在类中定义，无需参数，直接由类调用。类方法由实例调用，传入的参数为类本身，通常用cls作为参数名字。
+本关的任务是让学习者掌握静态方法与类方法的声明与使用。
+
+相关知识
+
+静态方法
+
+在声明静态方法的时候，使用函数修饰符@staticmethod。例如：
+
+class StaticMethood:
+    @staticmethod
+    def statictest():
+        print("这是静态函数")
+StaticMethood.statictest()
+运行结果为:
+
+这是静态函数
+类方法
+
+在声明类方法的时候，使用函数修饰符@classmethod。例如：
+
+class ClassMethod:
+    @classmethod
+    def classtest(cls):
+        print(cls)
+        print("这是类方法")
+cm = ClassMethod()
+cm.classtest()
+运行结果为:
+
+<class '__main__.ClassMethod'>
+这是类方法

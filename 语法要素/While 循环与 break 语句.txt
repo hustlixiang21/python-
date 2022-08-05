@@ -1,0 +1,31 @@
+while循环和break的结构如下图1所示：
+
+while语句
+
+while语句的基本形式为：
+
+while 判断条件1：
+    循环语句
+当判断条件1为true时，执行循环语句，直到判断条件1为假。例如：
+
+count = 0
+while(count <= 10):
+    print("现在计数为:",count)
+    count += 1
+break语句
+
+break语句的基本形式为：
+
+while 判断条件1：
+    循环语句
+    判断条件2：
+    break
+当判断条件1为true时执行循环语句。若此时判断条件2为true，执行break跳出while循环，若判断条件2一直为false，则执行while循环，一直到判断条件1为false。
+例如：
+
+count = 0
+while(count <= 10):
+    print("现在计数为:",count)
+    count += 1
+    if(count > 5):
+        break

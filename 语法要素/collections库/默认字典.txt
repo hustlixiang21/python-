@@ -1,0 +1,28 @@
+默认字典 (defaultdict)
+
+默认字典的功能与dict基本相同，但在访问一个不存在的key时，默认字典会提供一个默认值，而不是引发异常。
+#####创建默认字典
+默认字典的构造函数接受一个工厂函数default_factory作为参数，可以将一个类型名看做是一个工厂函数，比如list，tuple，str等。
+这个函数会在要生成默认值的时候无参调用，如果使用类型名作为工厂函数，则这个类型必须要有无参构造函数，比如：
+
+dd = collections.defaultdict(int) #使用int作为工厂函数
+print(dd['a']) #访问不存在的key:'a'
+dd = collections.defaultdict(tuple) #使用tuple作为工厂函数
+print(dd['a']) #访问不存在的key:'a'
+dd = collections.defaultdict(str) #使用str作为工厂函数
+print(dd['a']) #访问不存在的key:'a'
+class Test:
+    def __init__(self,name): #只有一个构造函数，而且它有一个参数
+        print("init")
+dd = collections.defaultdict(Test) #使用自定义类型Test作为工厂函数
+print(dd['a']) #运行到这里就会出现异常，原因是Test类没有无参的构造函数
+直到最后一行语句之前，上面的结果是：
+0
+()
+ 
+第三行是字符串的默认值：空字符串。
+
+如果不提供工厂函数，那么默认值的功能就失效了，此时默认字典与普通dict表现的功能一致：
+
+dd = collections.defaultdict()
+print(dd['a']) #虽然dd是一个默认字典，但由于没有指定工厂函数，没办法产生一个默认值，因此还是会发生异常

@@ -1,0 +1,62 @@
+属性就是对类和对象特征的描述，外部以属性来区分不同的类，类具有数据属性和方法。而由类创建出来的实例-对象，具有它所属的类的数据属性和方法。
+
+
+例如，书本是一个类，它具有作者、书名、出版社等数据属性，它还具有销售这一个方法。
+《 Python 核心编程》就是书本类的一个对象，它也具有作者、书名、出版社等数据属性和销售这一个方法。
+
+相关知识
+
+类的数据属性
+
+类的数据属性只与类绑定，不属于任何实例。在类创建后，属性也被创建，类的数据属性也可以称为静态变量，
+它通常用来跟踪与类相关的值。类的数据属性使用的并不多，一般都是用实例数据属性。
+例如：
+
+class DataProperty:
+    theData = 10
+在上面的例子中，theData就是类的数据属性。
+
+
+类中还有很多特殊属性，具体如下:
+
+ClassName.__name__：类ClassName的名字；
+ClassName.__doc__：类ClassName的文档字符串；
+ClassName.__bases__：类ClassName的所有父类构成的元组；
+ClassName.__dict__：类ClassName的属性；
+ClassName.__module__：类ClassName定义所在的模块；
+Instance.__class__：实例Instance所对应的类。
+类的方法
+
+类中的方法也称为函数。Python中用关键字def定义一个方法，后面接方法名，最后接参数。例如:
+
+class  MethodExample:
+    def theMethod(self):
+        print("这是方法实例")
+类中的方法一定要通过实例的句点方法去调用。例如:
+
+class  MethodExample:
+    def theMethod(self):
+        print("这是方法实例")
+me = MethodExample()
+me.theMethod()
+类的实例化
+
+Python 使用函数操作符来创建实例对象。例如:
+
+class  MethodExample:
+    def theMethod(self):
+        print("创建类的实例")
+me = MethodExample()
+在实例化一个对象后，Python 会检查是否实现了__init__()方法。如果没有实现__init__()方法，则不会做其它的操作，
+直接返回对象，实例化过程完毕。而__init__()方法是用来给类本身初始化的，支持带参数的初始化。例如：
+
+class Book:
+    def __init__(self,bookname,price,author):
+        self.bookname = bookname
+        self.price = price
+        self.author = author
+    def sell(self):
+        print("%s书本的价格为%d" %(self.bookname,int(self.price)))
+book = Book("python","45","aas")
+book.sell()
+在上面的例子中，__init__()是解释器在创建一个实例后调用的第一个方法。

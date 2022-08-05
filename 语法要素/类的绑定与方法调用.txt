@@ -1,0 +1,28 @@
+在 Python 中，如果用实例去调用方法，这种限制就被称为 Python 中的绑定（binging）。
+没有创建实例时，方法就是未绑定的。
+本关的任务就是让学习者理解什么是绑定，并学会如何调用方法。
+
+相关知识
+
+调用绑定方法
+
+在定义方法时，self总是作为第一个参数传递的。self代表实例本身，self.变量代表调用此实例的变量，
+self.方法代表调用实例的方法。因为声明方法时已经传入self，所以在调用时self就不用明确传入了，
+此时实例是隐含的。
+调用绑定方法的代码如下:
+
+class bindExample:
+    def bindMethod(self):
+        print("绑定方法调用实例")
+be = bindExample()
+be.bindMethod()
+调用非绑定方法
+
+当调用非绑定方法的时候，因为没有创建实例，所以需要用类去调用方法。在调用的时候需要显式地传入一个实例参数。
+例如:
+
+class bindExample:
+    def bindMethod(self):
+        print("非绑定方法调用实例")
+be = bindExample()
+bindExample.bindMethod(be)
